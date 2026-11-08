@@ -1,0 +1,40 @@
+.vanta-collection-collection { overflow-x: clip; }
+.vanta-collection-header { display: flex; justify-content: space-between; align-items: end; gap: var(--space-2xl); margin-bottom: var(--space-2xl); }
+.vanta-collection-products { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-xl); align-items: start; }
+.vanta-collection-product { min-width: 0; }
+.vanta-collection-stage { display: grid; place-items: center; aspect-ratio: 4 / 5; margin-bottom: var(--space-xl); background: var(--paper-2); overflow: hidden; }
+.vanta-collection-object { display: grid; place-items: center; width: 100%; height: 100%; }
+.vanta-collection-phone { width: 49%; filter: grayscale(1); }
+.vanta-collection-buds { position: relative; width: 76%; aspect-ratio: 1; }
+.vanta-collection-case { position: absolute; inset: 47% 0 3%; border-radius: 42% 42% 38% 38% / 36% 36% 50% 50%; background: linear-gradient(160deg, var(--ink), var(--finish-titanium) 45%, var(--finish-graphite)); border: 1px solid var(--finish-titanium); }
+.vanta-collection-case::after { content: ""; position: absolute; inset: 28% 2% auto; height: 1px; background: var(--paper-3); }
+.vanta-collection-earbud { position: absolute; top: 8%; left: 20%; width: 22%; height: 29%; border-radius: 55% 50% 44% 48%; background: linear-gradient(130deg, var(--ink), var(--finish-titanium) 60%, var(--finish-graphite)); transform: rotate(-22deg); }
+.vanta-collection-earbud:nth-child(2) { left: auto; right: 20%; transform: rotate(22deg); }
+.vanta-collection-earbud::after { content: ""; position: absolute; top: 18%; left: 18%; width: 32%; height: 38%; border-radius: 50%; background: var(--paper); border: 1px solid var(--finish-graphite); }
+.vanta-collection-core { position: relative; width: 75%; aspect-ratio: 1; border-radius: 25%; background: linear-gradient(145deg, var(--finish-titanium), var(--finish-graphite)); border: 1px solid var(--finish-titanium); transform: rotate(-12deg); }
+.vanta-collection-dial { position: absolute; inset: 8%; border-radius: 50%; border: 1px solid var(--ink-2); background: linear-gradient(145deg, var(--ink), var(--finish-titanium) 55%, var(--finish-graphite)); }
+.vanta-collection-dial::after { content: ""; position: absolute; inset: 18%; border-radius: 50%; background: var(--paper-3); border: 1px solid var(--finish-graphite); }
+.vanta-collection-summary { min-height: 4.5em; }
+.vanta-collection-details { margin-top: var(--space-lg); border-top: 1px solid var(--rule); }
+.vanta-collection-details summary { display: flex; justify-content: space-between; align-items: center; min-height: 3.5rem; cursor: pointer; font-size: 0.9375rem; list-style: none; }
+.vanta-collection-details summary::-webkit-details-marker { display: none; }
+.vanta-collection-details summary:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+.vanta-collection-plus { font-size: 1.5rem; font-weight: 300; }
+.vanta-collection-details[open] .vanta-collection-plus { transform: rotate(45deg); }
+.vanta-collection-details dl { font-size: 0.875rem; padding-bottom: var(--space-md); }
+.vanta-collection-details dl > div { display: grid; grid-template-columns: 1fr 1.5fr; gap: var(--space-md); padding-block: var(--space-sm); border-top: 1px solid var(--rule); }
+.vanta-collection-details dt { color: var(--ink-2); }
+.vanta-collection-details dd { margin: 0; overflow-wrap: anywhere; }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .vanta-collection-object { transition: transform var(--dur-long) var(--ease-out); }
+  .vanta-collection-product:hover .vanta-collection-object, .vanta-collection-product:focus-within .vanta-collection-object { transform: translateY(-6px) scale(1.025); }
+}
+@media (max-width: 1023px) {
+  .vanta-collection-header { align-items: start; flex-direction: column; gap: var(--space-lg); }
+  .vanta-collection-products { grid-template-columns: 1fr; gap: var(--space-3xl); }
+  .vanta-collection-stage { aspect-ratio: 4 / 3; }
+  .vanta-collection-object { max-width: 28rem; }
+  .vanta-collection-phone { width: 34%; }
+  .vanta-collection-buds, .vanta-collection-core { width: 56%; }
+  .vanta-collection-summary { min-height: 0; max-width: 48ch; }
+}

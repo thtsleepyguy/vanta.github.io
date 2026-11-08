@@ -1,0 +1,31 @@
+.vanta-os-layout { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: center; gap: var(--space-2xl); }
+.vanta-os-stage { display: grid; place-items: center; padding: var(--space-xl); background: var(--paper-2); border: 1px solid var(--rule); border-radius: var(--radius-xl); }
+.vanta-os-phone { --screen: var(--paper); --panel: var(--paper-2); --text: var(--ink); --secondary: var(--ink-2); width: 100%; max-width: 21rem; position: relative; padding: 2.75rem 1.25rem 2.5rem; border: 5px solid var(--rule); border-radius: 2.75rem; background: var(--screen); color: var(--text); }
+.vanta-os-phone[data-appearance="light"] { --screen: var(--ink); --panel: color-mix(in oklch, var(--ink), var(--paper) 7%); --text: var(--paper); --secondary: color-mix(in oklch, var(--paper), var(--ink) 25%); }
+.vanta-os-camera { position: absolute; top: 1rem; left: calc(50% - 0.25rem); width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--rule); }
+.vanta-os-status, .vanta-os-status > span:last-child, .vanta-os-panelTitle { display: flex; justify-content: space-between; align-items: center; gap: var(--space-xs); }
+.vanta-os-status { font-size: 0.75rem; color: var(--secondary); }
+.vanta-os-clock { margin-block: 2.5rem; }
+.vanta-os-clock time { display: block; font-size: clamp(3.5rem, 7vw, 4.75rem); font-weight: 400; line-height: 1; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
+.vanta-os-clock p { margin-top: var(--space-sm); color: var(--secondary); font-size: 0.875rem; }
+.vanta-os-panel { padding: var(--space-lg); border-radius: var(--radius-md); background: var(--panel); }
+.vanta-os-panelTitle { font-size: 0.875rem; }
+.vanta-os-elapsed { margin-block: var(--space-lg); font-size: 2.75rem; line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.vanta-os-actions { display: flex; gap: var(--space-sm); }
+.vanta-os-phone .vanta-os-primary, .vanta-os-phone .vanta-os-control, .vanta-os-phone .vanta-os-appearance { min-height: 2.75rem; height: auto; transition: none; transform: none; border-radius: var(--radius-sm); }
+.vanta-os-phone .vanta-os-primary { flex: 1; background: var(--text); color: var(--screen); }
+.vanta-os-phone .vanta-os-control { width: 2.75rem; background: transparent; color: var(--text); border-color: var(--secondary); }
+.vanta-os-phone .vanta-os-appearance { display: flex; width: 100%; gap: var(--space-sm); margin-top: var(--space-md); padding: var(--space-md); border-color: transparent; background: var(--panel); color: var(--text); white-space: normal; text-align: left; font-size: 0.8125rem; }
+.vanta-os-appearance > span:first-of-type { flex: 1; }
+.vanta-os-switch { width: 2rem; padding: 3px; border: 1px solid var(--secondary); border-radius: 2rem; }
+.vanta-os-switch > span { display: block; width: 0.625rem; height: 0.625rem; border-radius: 50%; background: var(--text); }
+.vanta-os-appearance[aria-pressed="true"] .vanta-os-switch > span { margin-left: auto; }
+.vanta-os-phone button:focus-visible { outline: 2px solid var(--text); outline-offset: 3px; box-shadow: none; }
+.vanta-os-home { position: absolute; bottom: 0.875rem; left: 35%; width: 30%; height: 3px; border-radius: 3px; background: var(--secondary); }
+@media (prefers-reduced-motion: no-preference) {
+  .vanta-os-phone { animation: vanta-os-arrive var(--dur-long) var(--ease-out) both; }
+  @keyframes vanta-os-arrive { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+}
+@media (hover: hover) and (pointer: fine) { .vanta-os-phone button:hover { filter: brightness(0.9); } }
+@media (max-width: 1023px) { .vanta-os-layout { grid-template-columns: 1fr; } }
+@media (max-width: 390px) { .vanta-os-stage { padding: var(--space-md) var(--space-xs); } .vanta-os-phone { padding-inline: 1rem; } }
